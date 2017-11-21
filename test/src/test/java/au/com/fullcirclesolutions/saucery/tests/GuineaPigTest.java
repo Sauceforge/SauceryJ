@@ -53,7 +53,7 @@ public class GuineaPigTest extends SauceryBase {
     
     @Theory
     public void PageTitle(String s) {
-        System.out.println(String.format("I am a data driven test testing with data=%1$s.", s));
+        System.out.println(String.format("I am a data driven test testing with data=%s.", s));
         
         Driver.navigate().to("https://saucelabs.com/test/guinea-pig");
         
