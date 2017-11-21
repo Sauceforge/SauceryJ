@@ -21,9 +21,6 @@ public class SauceryBase extends SauceryRoot implements SauceOnDemandSessionIdPr
     public SauceryBase(String os, String platformType, String browser, String browserVersion, String longName, String longVersion, String url, String device, String deviceOrientation) {
         super(os, platformType, browser, browserVersion, longName, longVersion, url, device, deviceOrientation);
     }
-    
-    public SauceryBase(){
-    }
 
     @Override
     public void InitialiseDriver(DesiredCapabilities caps, int waitSecs) {

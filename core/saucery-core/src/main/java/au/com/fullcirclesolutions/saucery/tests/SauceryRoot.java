@@ -37,10 +37,6 @@ public abstract class SauceryRoot implements SauceOnDemandSessionIdProvider {
     public SauceryRoot(String os, String platformType, String browser, String browserVersion, String longName, String longVersion, String url, String device, String deviceOrientation) {
         platform = new SaucePlatform(os, platformType, browser, browserVersion, longName, longVersion, url, device, deviceOrientation);
     }
-    
-    public SauceryRoot(){
-        platform = null;
-    }
 
     @ConcurrentParameterized.Parameters
     public static LinkedList<String[]> getEnvironments() throws Exception {
