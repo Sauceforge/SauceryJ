@@ -34,6 +34,9 @@ public class GuineaPigTest extends SauceryBase {
         super(os, platform, browser, browserVersion, longName, longVersion, url, device, deviceOrientation);
     }
     
+    public GuineaPigTest(){
+    }
+    
     @Test
     public void PageTitle() {
         System.out.println(String.format("I am a data driven test testing with x=%d and y=%d.", x, y));
