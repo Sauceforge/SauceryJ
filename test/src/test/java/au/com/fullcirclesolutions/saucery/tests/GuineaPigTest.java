@@ -1,11 +1,12 @@
 package au.com.fullcirclesolutions.saucery.tests;
 
 import org.junit.Assert;
-import org.junit.BeforeClass;
+//import org.junit.BeforeClass;
 import org.junit.Test;
-import org.junit.experimental.theories.DataPoints;
+//import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
 import org.junit.experimental.theories.Theory;
+import org.junit.experimental.theories.suppliers.TestedOn;
 import org.junit.runner.RunWith;
 //import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
@@ -21,17 +22,17 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class GuineaPigTest extends SauceryBase {
     private static String[] datapoints;
 
-    @BeforeClass
-    public static void generateData() {
+    //@BeforeClass
+    //public static void generateData() {
         // do all the work of generating the datapoints
-        datapoints = new String[] { "1", "2", "3", "4", "5" };
-    }
+    //    datapoints = new String[] { "1", "2", "3", "4", "5" };
+    //}
     
-    @DataPoints
-    public static String[] data() {
+    //@DataPoints
+    //public static String[] data() {
         //return new String[] { "1", "2", "3", "4", "5" };
-        return datapoints;
-    }
+    //    return datapoints;
+    //}
     
     //@Parameters(name = "{index}: Test with X={0}, Y={1}")
     //public static List<int[]> data() {
@@ -52,8 +53,8 @@ public class GuineaPigTest extends SauceryBase {
     }
     
     @Theory
-    public void PageTitle(String s) {
-        System.out.println(String.format("I am a data driven test testing with data=%s.", s));
+    public void PageTitle(@TestedOn(ints = {100, 200, 300}) final int value) {
+        System.out.println(String.format("I am a data driven test testing with value=%d.", value));
         
         Driver.navigate().to("https://saucelabs.com/test/guinea-pig");
         
@@ -61,8 +62,8 @@ public class GuineaPigTest extends SauceryBase {
         Assert.assertTrue(Driver.getTitle().contains("I am a page title - Sauce Labs"));
     }
 
-    @Theory
-    public void LinkWorks(String s) {
+    @Test
+    public void LinkWorks() {
         Driver.navigate().to("https://saucelabs.com/test/guinea-pig");
         // find and click the link on the page
         WebElement link = Driver.findElement(By.id("i am a link"));
@@ -76,8 +77,8 @@ public class GuineaPigTest extends SauceryBase {
         Assert.assertTrue(Driver.getCurrentUrl().contains("saucelabs.com/test-guinea-pig2.html"));
     }
 
-    @Theory
-    public void UserAgentPresent(String s) {
+    @Test
+    public void UserAgentPresent() {
         Driver.navigate().to("https://saucelabs.com/test/guinea-pig");
 
         // read the useragent string off the page
