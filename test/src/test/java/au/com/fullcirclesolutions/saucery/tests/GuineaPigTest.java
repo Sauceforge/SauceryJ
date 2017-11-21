@@ -19,7 +19,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 @RunWith(Theories.class)
 public class GuineaPigTest extends SauceryBase {
     @DataPoints
-   public static int[] ints = { 1, 2, 3, 4, 5 };
+   public static int[] values() {
+        return new int[] { 1, 2, 3, 4, 5 };
+    }
     
     //@Parameters(name = "{index}: Test with X={0}, Y={1}")
     //public static List<int[]> data() {
@@ -40,8 +42,8 @@ public class GuineaPigTest extends SauceryBase {
     }
     
     @Theory
-    public void PageTitle(int data) {
-        System.out.println(String.format("I am a data driven test testing with data=%1$d.", data));
+    public void PageTitle(Integer i) {
+        System.out.println(String.format("I am a data driven test testing with data=%1$d.", i));
         
         Driver.navigate().to("https://saucelabs.com/test/guinea-pig");
         
