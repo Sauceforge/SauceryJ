@@ -1,6 +1,7 @@
 package au.com.fullcirclesolutions.saucery.tests;
 
 import org.junit.Assert;
+import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.experimental.theories.DataPoints;
 import org.junit.experimental.theories.Theories;
@@ -18,9 +19,18 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 @RunWith(Theories.class)
 public class GuineaPigTest extends SauceryBase {
+    private static int[] datapoints;
+
+    @BeforeClass
+    public static void generateData() {
+        // do all the work of generating the datapoints
+        datapoints = new int[] { 1, 2, 3, 4, 5 };
+    }
+    
     @DataPoints
-   public static int[] values() {
-        return new int[] { 1, 2, 3, 4, 5 };
+    public static int[] data() {
+        //return new int[] { 1, 2, 3, 4, 5 };
+        return datapoints;
     }
     
     //@Parameters(name = "{index}: Test with X={0}, Y={1}")
