@@ -61,7 +61,7 @@ public class GuineaPigTest extends SauceryBase {
         Assert.assertTrue(Driver.getTitle().contains("I am a page title - Sauce Labs"));
     }
 
-    @Test
+    @Theory
     public void LinkWorks(String s) {
         Driver.navigate().to("https://saucelabs.com/test/guinea-pig");
         // find and click the link on the page
@@ -76,7 +76,7 @@ public class GuineaPigTest extends SauceryBase {
         Assert.assertTrue(Driver.getCurrentUrl().contains("saucelabs.com/test-guinea-pig2.html"));
     }
 
-    @Test
+    @Theory
     public void UserAgentPresent(String s) {
         Driver.navigate().to("https://saucelabs.com/test/guinea-pig");
 
