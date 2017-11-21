@@ -62,7 +62,7 @@ public class GuineaPigTest extends SauceryBase {
     }
 
     @Test
-    public void LinkWorks() {
+    public void LinkWorks(String s) {
         Driver.navigate().to("https://saucelabs.com/test/guinea-pig");
         // find and click the link on the page
         WebElement link = Driver.findElement(By.id("i am a link"));
@@ -77,7 +77,7 @@ public class GuineaPigTest extends SauceryBase {
     }
 
     @Test
-    public void UserAgentPresent() {
+    public void UserAgentPresent(String s) {
         Driver.navigate().to("https://saucelabs.com/test/guinea-pig");
 
         // read the useragent string off the page
